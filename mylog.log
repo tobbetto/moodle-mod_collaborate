@@ -1,0 +1,39 @@
+What is in a collaborate stdClass Object
+(
+    [id] => 11
+    [course] => 3
+    [name] => sakfñsalkjfñsdljf
+    [intro] => <p>sfsdfdsfasf</p>
+    [introformat] => 1
+    [title] => sdfsdafafsfdsaf
+    [timecreated] => 1714394525
+    [timemodified] => 0
+    [grade] => 100
+)
+
+What is in a collaborate stdClass Object
+(
+    [id] => 12
+    [course] => 3
+    [name] => fhfghjfgjfgj
+    [intro] => <p>hjfgjhfgjh</p>
+    [introformat] => 1
+    [title] => gjgfjfgjfgh
+    [timecreated] => 1714401416
+    [timemodified] => 0
+    [grade] => 100
+)
+
+What is in a collaborate stdClass Object
+(
+    [id] => 12
+    [course] => 3
+    [name] => fhfghjfgjfgj
+    [intro] => <p>hjfgjhfgjh</p>
+    [introformat] => 1
+    [title] => gjgfjfgjfgh
+    [timecreated] => 1714401416
+    [timemodified] => 0
+    [grade] => 100
+)
+
