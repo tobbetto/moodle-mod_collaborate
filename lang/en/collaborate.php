@@ -46,4 +46,4 @@ $string['nocollaborates'] = 'No instances';
 
 // Mod form specific collaborate settings.
 $string['title'] = 'Activity Title: ';
-$string['footer'] = 'We added a footer';
+$string['footer'] = 'This is a footer';
