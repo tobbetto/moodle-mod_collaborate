@@ -48,3 +48,4 @@ $string['nocollaborates'] = 'No instances';
 $string['title'] = 'Activity Title: ';
 $string['title_help'] = 'Pick a beautiful title to fit you amazing activity';
 $string['footer'] = 'This is a footer';
+$string['pageviewed'] = 'You have viewed the module';

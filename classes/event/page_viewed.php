@@ -15,19 +15,37 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the version and other meta-info about the plugin
+ * Simple debugging class
  *
  * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_collaborate
- * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
+
+namespace mod_collaborate\event;
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_collaborate';
-$plugin->version = 2020082703;
-$plugin->release = 'v1.1';
-$plugin->requires = 2020060900;
-$plugin->maturity = MATURITY_BETA;
+class page_viewed extends \core\event\base {
+    protected function init() {
+        $this->data['crud'] = 'r';
+        $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
+        $this->data['objecttable'] = 'page';
+    }
+
+    public static function get_name() {
+        return get_string('pageviewed', 'mod_collaborate');
+    }
+
+    /**
+     * Returns non-localised event description with id's for admin use only.
+     *
+     * @return string
+     */
+    public function get_description() {
+        return "The user with id '$this->userid' has ".
+                "viewed a page with the id '$this->objectid' ".
+                "in the Collaborate activity with course ".
+                "module id '$this->contextinstanceid'.";
+    }
+}
