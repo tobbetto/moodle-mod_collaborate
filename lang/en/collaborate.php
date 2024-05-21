@@ -47,5 +47,16 @@ $string['nocollaborates'] = 'No instances';
 // Mod form specific collaborate settings.
 $string['title'] = 'Activity Title: ';
 $string['title_help'] = 'Pick a beautiful title to fit you amazing activity';
-$string['footer'] = 'This is a footer';
+$string['footer'] = 'This is an extra line we added to the form';
 $string['pageviewed'] = 'You have viewed the module';
+
+// Mod form specific collaborate settings.
+$string['title'] = 'Activity Title: ';
+$string['texteditor'] = 'Instructions {$a}';
+
+// User button labels.
+$string['studenta'] = 'Partner A';
+$string['studentb'] = 'Partner B';
+
+$string['user'] = 'Hello, Partner {$a}';
+$string['returnview'] = 'Go back to view page';

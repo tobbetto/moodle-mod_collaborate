@@ -30,6 +30,7 @@ use renderable;
 use renderer_base;
 use templatable;
 use stdClass;
+use moodle_url;
 
 /**
  * collaborate: Create a new view page renderable object
@@ -63,6 +64,13 @@ class view implements renderable, templatable {
         // Moodle handles processing of std intro field.
         $data->body = format_module_intro('collaborate',
                 $this->collaborate, $this->id);
+
+        // Set up the user page URLs.
+        $a = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $this->collaborate->id, 'page' => 'a']);
+        $b = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $this->collaborate->id, 'page' => 'b']);
+        $data->url_a = $a->out(false);
+        $data->url_b = $b->out(false);
+
         $data->footer = get_string('footer', 'mod_collaborate');
 
         return $data;
