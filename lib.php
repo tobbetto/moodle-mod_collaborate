@@ -30,6 +30,8 @@
  * @see https://github.com/moodlehq/moodle-mod_collaborate
  * @see https://github.com/justinhunt/moodle-mod_collaborate */
 
+ use mod_collaborate\local\collaborate_editor;
+
 defined('MOODLE_INTERNAL') || die();
 
 /* Moodle core API */
@@ -76,9 +78,17 @@ function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_for
     global $DB;
 
     $collaborate->timecreated = time();
-    $collaborate->id = $DB->insert_record('collaborate', $collaborate);
 
-    return $collaborate->id;
+    // Add new instance with dummy data for the editor fields.
+    $collaborate->instructionsa ='a';
+    $collaborate->instructionsaformat = FORMAT_HTML;
+    $collaborate->instructionsb ='b';
+    $collaborate->instructionsbformat = FORMAT_HTML;
+
+    //$collaborate->id = $DB->insert_record('collaborate', $collaborate);
+    return collaborate_editor::update_editor_instance_helper($collaborate, $mform, true);
+
+    //return $collaborate->id;
 }
 
 /**
@@ -98,9 +108,11 @@ function collaborate_update_instance(stdClass $collaborate, mod_collaborate_mod_
     $collaborate->timemodified = time();
     $collaborate->id = $collaborate->instance;
 
-    $result = $DB->update_record('collaborate', $collaborate);
+    return collaborate_editor::update_editor_instance_helper($collaborate, $mform);
 
-    return $result;
+    //$result = $DB->update_record('collaborate', $collaborate);
+
+    //return $result;
 }
 
 /**
@@ -372,7 +384,9 @@ function collaborate_update_grades(stdClass $collaborate, $userid = 0) {
  * @return array of [(string)filearea] => (string)description
  */
 function collaborate_get_file_areas($course, $cm, $context) {
-    return array();
+    //return array();
+    return ['instructionsa' => 'Instructions for partner A',
+            'instructionsb' => 'Instructions for partner B'];
 }
 
 /**
@@ -450,3 +464,5 @@ function collaborate_extend_navigation(navigation_node $navref, stdClass $course
 function collaborate_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $collaboratenode=null) {
     // TODO Delete this function and its docblock, or implement it.
 }
+
+
