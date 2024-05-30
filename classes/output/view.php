@@ -44,11 +44,12 @@ class view implements renderable, templatable {
 
     protected $collaborate;
     protected $id;
-
-    public function __construct($collaborate, $id) {
+    protected $reportstab;
+    public function __construct($collaborate, $id, $reportstab) {
 
         $this->collaborate = $collaborate;
         $this->id = $id;
+        $this->reportstab = $reportstab;
     }
     /**
      * Export this data so it can be used as the context for a mustache template.
@@ -72,6 +73,16 @@ class view implements renderable, templatable {
         $data->url_b = $b->out(false);
 
         $data->footer = get_string('footer', 'mod_collaborate');
+
+        // Add links to reports tabs, if enabled.
+        if ($this->reportstab) {
+            $data->reports = $this->reportstab;
+            $reports = new \moodle_url('/mod/collaborate/reports.php',
+                ['cid' => $this->collaborate->id]);
+            $view = new moodle_url('/mod/collaborate/view.php', ['id' => $this->id]);
+            $data->url_reports = $reports->out(false);
+            $data->url_view = $view->out(false);
+        }
 
         return $data;
     }

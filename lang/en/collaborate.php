@@ -60,3 +60,9 @@ $string['studentb'] = 'Partner B';
 
 $string['user'] = 'Hello, Partner {$a}';
 $string['returnview'] = 'Go back to view page';
+$string['collaborate:viewreportstab'] = 'View reports tab';
+
+$string['enablereports'] = 'Enable reports';
+$string['enablereports_desc'] = 'Enable the reports to be viewed by teachers.';
+$string['reportstab'] = 'Reports';
+$string['viewtab'] = 'View';

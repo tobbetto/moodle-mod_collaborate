@@ -15,19 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the version and other meta-info about the plugin
+ * TODO describe file settings
  *
  * @package    mod_collaborate
- * @copyright  2019 Richard Jones richardnz@outlook.com
+ * @copyright  2024 YOUR NAME <your@email.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_collaborate
- * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-$plugin->component = 'mod_collaborate';
-$plugin->version = 2022120415;
-$plugin->release = 'v1.1';
-$plugin->requires = 2020060900;
-$plugin->maturity = MATURITY_BETA;
+require_once($CFG->dirroot.'/mod/collaborate/lib.php');
+
+if ($ADMIN->fulltree) {
+    $settings->add(new admin_setting_configcheckbox('mod_collaborate/enablereports',
+        get_string('enablereports', 'mod_collaborate'),
+        get_string('enablereports_desc', 'mod_collaborate'), 0));
+}
